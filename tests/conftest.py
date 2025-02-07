@@ -47,7 +47,6 @@ def create_login_delete_user(generate_users_data):
 
     user_login = UserMethods().login_user(email, password)
     user_token = user_login.json().get('accessToken')
-
     yield [user_login, user_token]
 
     UserMethods().delete_user(user_token)
