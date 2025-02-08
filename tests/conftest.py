@@ -50,3 +50,11 @@ def create_login_delete_user(generate_users_data):
     yield [user_login, user_token]
 
     UserMethods().delete_user(user_token)
+
+
+@pytest.fixture()
+def create_user_and_delete_user(generate_users_data):
+    user_token = UserMethods().create_user(generate_users_data).json().get('accessToken')
+    yield user_token
+
+    UserMethods().delete_user(user_token)
