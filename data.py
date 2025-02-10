@@ -16,23 +16,13 @@ class DataForResponse:
     without_ingredient = "Ingredient ids must be provided"
 
 
-class DataForCreate:
-    CREATE_USER_BODY = {
-        "email": "test-data@yandex.ru",
-        "password": "password",
-        "name": "Username"
-    }
-
-
-class DataForLogin:
-    COURIER_LOGIN = {
-        "email": "",
-        "password": ""
-    }
-
-
 class DataForCreateOrder:
     CREATE_ORDER = {
-        "ingredients": ["60d3b41abdacab0026a733c6","609646e4dc916e00276b2870"]
+        "ingredients": ["61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa6f"]
     }
 
+
+class DataForCreateOrderWithInvalidHash:
+    CREATE_ORDER = {
+        "ingredients": ["abrakadabra789456123", "123456789abrakadabra"]
+    }
