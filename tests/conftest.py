@@ -41,13 +41,15 @@ def create_user(generate_users_data):
 
 @pytest.fixture()
 def create_login_delete_user(generate_users_data):
-    email = generate_users_data['email']
-    password = generate_users_data['password']
+    user_email = generate_users_data['email']
+    user_password = generate_users_data['password']
     UserMethods().create_user(generate_users_data)
 
-    user_login = UserMethods().login_user(email, password)
-    user_token = user_login.json().get('accessToken')
-    yield [user_login, user_token]
+    user_response = UserMethods().login_user(user_email, user_password)
+    user_response_json = user_response.json()
+    user_token = user_response_json.get('accessToken')
+    user_data = user_response_json.get('user')
+    yield [user_response, user_token, user_data]
 
     UserMethods().delete_user(user_token)
 

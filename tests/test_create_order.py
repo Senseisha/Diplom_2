@@ -28,4 +28,4 @@ class TestCreateOrder:
     def test_test_create_order_with_invalid_hash(self, create_login_delete_user, order_methods):
         token = create_login_delete_user[1]
         create_order = order_methods.create_order(DataForCreateOrderWithInvalidHash.CREATE_ORDER, token)
-        assert create_order.status_code == 500
+        assert create_order.status_code == 500 and DataForResponse.internal_server_error_text in create_order.text

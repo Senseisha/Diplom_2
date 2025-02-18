@@ -14,6 +14,7 @@ class DataForResponse:
     without_auth = "You should be authorised"
     existing_email = "User with such email already exists"
     without_ingredient = "Ingredient ids must be provided"
+    internal_server_error_text = 'Internal Server Error'
 
 
 class DataForCreateOrder:
