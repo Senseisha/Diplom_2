@@ -10,10 +10,6 @@ class TestChangeUserData:
     def test_change_email_and_name_with_authorization(self, key, data, create_login_delete_user, user_methods):
         token = create_login_delete_user[1]
         change_user_data = user_methods.change_data({key: data}, token)
-        # if key == 'password':
-        #     assert change_user_data.status_code == 200
-        #     return
-
         assert change_user_data.status_code == 200 \
                and change_user_data.json()['user'][key] == data
 
